@@ -5,9 +5,6 @@ public class Bank {
     String noHp;
     String email;
 
-    public Bank() {
-    }
-
     public Bank(String noRekening, String nama, String namaibu, String noHp, String email) {
         this.noRekening = noRekening;
         this.nama = nama;
@@ -21,3 +18,4 @@ public class Bank {
     }
 
 }
+
