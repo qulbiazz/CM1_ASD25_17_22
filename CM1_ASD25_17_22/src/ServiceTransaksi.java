@@ -3,7 +3,7 @@ public class ServiceTransaksi {
     int idx;
 
 
-    void ServiceTransaksi(int kapasitas) {
+     ServiceTransaksi(int kapasitas) {
         trs = new Transaksi[kapasitas];
         idx = 0;
     }
@@ -24,17 +24,17 @@ public class ServiceTransaksi {
         }
     }
 
-    void searchingByEmail(String email) {
+    void searchingByEmail(String kode) {
         boolean found = false;
         for (int i = 0; i < idx; i++) {
-            if (trs[i].bankAcc.email.equalsIgnoreCase(email)) {
+            if (trs[i].kodeTransaksi.equalsIgnoreCase(kode)) {
                 System.out.println("Data ditemukan:");
                 trs[i].tampilDataTransaksi();
                 found = true;
             }
         }
         if (!found) {
-            System.out.println("Data tidak ditemukan untuk email: " + email);
+            System.out.println("Data tidak ditemukan untuk email: " + kode);
         }
     }
 
@@ -43,14 +43,14 @@ public class ServiceTransaksi {
             System.out.println("Data masih kosong.");
             return;
         }
-        Transaksi max = trs[0];
+        Transaksi min = trs[0];
         for (int i = 1; i < idx; i++) {
-            if (trs[i].inOutSaldo > max.inOutSaldo) {
-                max = trs[i];
+            if (trs[i].inOutSaldo < min.inOutSaldo) {
+                min = trs[i]; 
             }
         }
-        System.out.println("Transaksi dengan debit/kredit tertinggi:");
-        max.tampilDataTransaksi();
+        System.out.println("Transaksi saldo terkecil:");
+        min.tampilDataTransaksi();
     }
 
     void bubbleSort() {
