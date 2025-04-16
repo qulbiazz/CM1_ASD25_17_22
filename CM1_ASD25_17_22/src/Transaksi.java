@@ -19,7 +19,17 @@ public class Transaksi {
     }
 
     void tampilDataTransaksi() {
-        System.out.printf("%s\t%s\t%.1f\t\t%.1f\t\t%.1f\t\t%s\t%s%n", kodeTransaksi, bankAcc.noRekening, saldo,
-                inOutSaldo, finalSaldo, tanggalTransaksi, type);
+        System.out.printf("%s\t%s\t%.1f\t\t%.1f\t\t%.1f\t\t%s\t%s%n", kodeTransaksi, bankAcc.noRekening, saldo,inOutSaldo, finalSaldo, tanggalTransaksi, type);
+    }
+
+    void tampil(){
+        System.out.println("Kode transaksi      : " +kodeTransaksi);
+        System.out.println("Nama                : " +bankAcc.nama);
+        System.out.println("No transaksi        : " +bankAcc.noRekening);
+        System.out.println("Saldo               : " +saldo);
+        System.out.println("InOutSaldo          : " +inOutSaldo);
+        System.out.println("Final Saldo         : " +finalSaldo);
+        System.out.println("Tanggal transaksi   : " +tanggalTransaksi);
+        System.out.println("Type                   : " +type);
     }
 }

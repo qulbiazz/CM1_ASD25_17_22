@@ -14,8 +14,7 @@ public class Bank {
     }
 
     void tampilDataNorek() {
-        System.out.printf("%s\t%s\t%.1f\t\t%.1f\t\t%.1f\\t\\t%s\\t%s%n", noRekening, nama, namaibu, noHp, email);
+        System.out.printf("%-17s %-10s %-10s %-20s %-20s%n", noRekening, nama, namaibu, noHp, email);
     }
 
 }
-
