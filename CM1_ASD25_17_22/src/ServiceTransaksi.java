@@ -17,24 +17,28 @@ public class ServiceTransaksi {
         }
     }
 
-    public void displayData() {
+    public void displayDataNorek() {
         for (int i = 0; i < idx; i++) {
-            trs[i].tampilDataTransaksi();
-            System.out.println("====================================");
+            trs[i].bankAcc.tampilDataNorek();
         }
     }
 
-    void searchingByEmail(String kode) {
+    public void displayData() {
+        for (int i = 0; i < idx; i++) {
+            trs[i].tampilDataTransaksi();
+        }
+    }
+
+    void searching(String key) {
         boolean found = false;
         for (int i = 0; i < idx; i++) {
-            if (trs[i].kodeTransaksi.equalsIgnoreCase(kode)) {
-                System.out.println("Data ditemukan:");
-                trs[i].tampilDataTransaksi();
-                found = true;
+            if (key.equalsIgnoreCase(trs[i].kodeTransaksi)) {
+                trs[i].tampil();
+                return;
             }
         }
         if (!found) {
-            System.out.println("Data tidak ditemukan untuk email: " + kode);
+            System.out.println("Data tidak ditemukan untuk kode Transaksi");
         }
     }
 
@@ -45,15 +49,15 @@ public class ServiceTransaksi {
         }
         Transaksi min = trs[0];
         for (int i = 1; i < idx; i++) {
-            if (trs[i].inOutSaldo < min.inOutSaldo) {
-                min = trs[i]; 
+            if (trs[i].finalSaldo < min.finalSaldo) {
+                min = trs[i];
             }
         }
-        System.out.println("Transaksi saldo terkecil:");
-        min.tampilDataTransaksi();
+        System.out.println("Transaksi dengan minimal saldo final:");
+        min.tampil();
     }
 
-    void bubbleSort() {
+    void Sorting() {
         for (int i = 0; i < idx - 1; i++) {
             for (int j = 0; j < idx - i - 1; j++) {
                 if (trs[j].inOutSaldo > trs[j + 1].inOutSaldo) {
